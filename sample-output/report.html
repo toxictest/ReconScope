@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ReconScope Report — example.com</title>
+<style>
+:root{--bg:#0d1117;--panel:#161b22;--line:#21262d;--fg:#e6edf3;--mut:#8b949e;--acc:#2f81f7;--ok:#3fb950;--warn:#d29922;--bad:#f85149}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.6 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:1120px;margin:0 auto;padding:32px 20px 64px}
+h1{margin:0 0 4px;font-size:24px;letter-spacing:-.3px}h2{font-size:16px;margin:32px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--line);color:var(--mut);text-transform:uppercase;letter-spacing:.08em}
+.sub{color:var(--mut);font-size:13px;margin-bottom:24px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px 18px}
+.card .n{font-size:28px;font-weight:600;letter-spacing:-.5px}
+.card .l{color:var(--mut);font-size:11px;text-transform:uppercase;letter-spacing:.1em;margin-top:4px}
+table{width:100%;border-collapse:collapse;background:var(--panel);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+th{background:#1c2128;color:var(--mut);text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.08em;padding:10px 12px;border-bottom:1px solid var(--line)}
+td{padding:9px 12px;border-bottom:1px solid #1b2027;font-size:13px;vertical-align:top}
+tr:last-child td{border-bottom:none}tr:hover td{background:#1a2028}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px}
+.s200{color:var(--ok)}.s301{color:var(--acc)}.s302{color:var(--acc)}.s403{color:var(--warn)}.sother{color:var(--bad)}
+.pill{display:inline-block;padding:1px 8px;border-radius:99px;font-size:11px;font-weight:600;background:#1f2630;color:var(--mut)}
+.tl{color:var(--mut);font-size:12px}
+code.sh{background:#1f2630;padding:10px 12px;border-radius:8px;display:block;overflow-x:auto;white-space:pre;color:#a5d6ff}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>ReconScope Report</h1>
+<div class="sub">Target <code>example.com</code> &nbsp;·&nbsp; 2026-10-17 10:23:24 &nbsp;·&nbsp; duration 0s &nbsp;·&nbsp; ReconScope v1.0.0</div>
+<div class="cards">
+<div class="card"><div class="n">13</div><div class="l">Subdomains</div></div>
+<div class="card"><div class="n">13</div><div class="l">Live hosts</div></div>
+<div class="card"><div class="n">13</div><div class="l">Hosts probed</div></div>
+<div class="card"><div class="n s200">10</div><div class="l">Status 200</div></div>
+<div class="card"><div class="n s301">2</div><div class="l">Redirects 301/302</div></div>
+<div class="card"><div class="n s403">1</div><div class="l">Forbidden 403</div></div>
+<div class="card"><div class="n sother">0</div><div class="l">Other</div></div>
+</div>
+<h2>Status breakdown</h2>
+<table><tr><th>Status</th><th>Count</th><th>Share of live</th></tr>
+<tr><td><span class="pill s200">200</span></td><td>10</td><td>76.9%</td></tr>
+<tr><td><span class="pill s301">301</span></td><td>1</td><td>7.7%</td></tr>
+<tr><td><span class="pill s302">302</span></td><td>1</td><td>7.7%</td></tr>
+<tr><td><span class="pill s403">403</span></td><td>1</td><td>7.7%</td></tr>
+</table>
+<h2>High-value targets</h2>
+<table><tr><th>Host</th><th>Status</th><th>Title</th></tr>
+<tr><td><code>admin.example.com</code></td><td>403</td><td class="tl">Admin Login</td></tr>
+<tr><td><code>api.example.com</code></td><td>200</td><td class="tl">API Gateway</td></tr>
+<tr><td><code>dev.example.com</code></td><td>200</td><td class="tl">Dev Environment</td></tr>
+<tr><td><code>mail.example.com</code></td><td>200</td><td class="tl">Homepage</td></tr>
+<tr><td><code>old.example.com</code></td><td>301</td><td class="tl"></td></tr>
+<tr><td><code>portal.example.com</code></td><td>200</td><td class="tl">Homepage</td></tr>
+<tr><td><code>staging.example.com</code></td><td>302</td><td class="tl">Staging</td></tr>
+<tr><td><code>vpn.example.com</code></td><td>200</td><td class="tl">Homepage</td></tr>
+</table>
+<h2>Top technologies</h2>
+<table><tr><th>Technology</th><th>Hosts</th></tr>
+<tr><td>Nginx</td><td>7</td></tr>
+<tr><td>PHP</td><td>2</td></tr>
+<tr><td>WordPress</td><td>1</td></tr>
+<tr><td>MySQL</td><td>1</td></tr>
+<tr><td>Kubernetes</td><td>1</td></tr>
+<tr><td>Go</td><td>1</td></tr>
+<tr><td>Express</td><td>1</td></tr>
+<tr><td>Apache</td><td>1</td></tr>
+</table>
+<h2>Live hosts (first 200)</h2>
+<table><tr><th>URL</th><th>Status</th><th>Title</th><th>Size</th><th>Server</th><th>IP</th></tr>
+<tr><td><code>https://admin.example.com</code></td><td class="s403">403</td><td class="tl">Admin Login</td><td>1204</td><td class="tl">nginx</td><td><code>10.0.0.11</code></td></tr>
+<tr><td><code>https://api.example.com</code></td><td class="s200">200</td><td class="tl">API Gateway</td><td>2048</td><td class="tl">envoy</td><td><code>10.0.0.13</code></td></tr>
+<tr><td><code>https://blog.example.com</code></td><td class="s200">200</td><td class="tl">Homepage</td><td>4210</td><td class="tl">nginx</td><td><code>10.0.0.10</code></td></tr>
+<tr><td><code>https://cdn.example.com</code></td><td class="s200">200</td><td class="tl">Homepage</td><td>4210</td><td class="tl">nginx</td><td><code>10.0.0.10</code></td></tr>
+<tr><td><code>https://dev.example.com</code></td><td class="s200">200</td><td class="tl">Dev Environment</td><td>8812</td><td class="tl">nodejs</td><td><code>10.0.0.12</code></td></tr>
+<tr><td><code>https://mail.example.com</code></td><td class="s200">200</td><td class="tl">Homepage</td><td>4210</td><td class="tl">nginx</td><td><code>10.0.0.10</code></td></tr>
+<tr><td><code>https://old.example.com</code></td><td class="s301">301</td><td class="tl">120</td><td>Apache</td><td class="tl">https://old.example.com</td><td><code>cname.old.example.com</code></td></tr>
+<tr><td><code>https://portal.example.com</code></td><td class="s200">200</td><td class="tl">Homepage</td><td>4210</td><td class="tl">nginx</td><td><code>10.0.0.10</code></td></tr>
+<tr><td><code>https://shop.example.com</code></td><td class="s200">200</td><td class="tl">Shop</td><td>54321</td><td class="tl">nginx</td><td><code>10.0.0.16</code></td></tr>
+<tr><td><code>https://staging.example.com</code></td><td class="s302">302</td><td class="tl">Staging</td><td>340</td><td class="tl">apache</td><td><code>10.0.0.14</code></td></tr>
+<tr><td><code>https://vpn.example.com</code></td><td class="s200">200</td><td class="tl">Homepage</td><td>4210</td><td class="tl">nginx</td><td><code>10.0.0.10</code></td></tr>
+<tr><td><code>https://wildcard.example.com</code></td><td class="s200">200</td><td class="tl">Homepage</td><td>4210</td><td class="tl">nginx</td><td><code>10.0.0.10</code></td></tr>
+<tr><td><code>https://www.example.com</code></td><td class="s200">200</td><td class="tl">Homepage</td><td>4210</td><td class="tl">nginx</td><td><code>10.0.0.10</code></td></tr>
+</table>
+<h2>Reuse</h2>
+<code class="sh"># live hosts, one per line
+cat /tmp/rs-test/sample/example.com/live/live_hosts.txt
+
+# 200-only hosts
+cat /tmp/rs-test/sample/example.com/categories/status_200.txt
+
+# high-value targets
+cat /tmp/rs-test/sample/example.com/categories/high_value.txt</code>
+<p class="tl" style="margin-top:32px">Generated by ReconScope v1.0.0 — ReconScope Contributors. Passive reconnaissance tool; use only on authorised assets.</p>
+</div>
+</body>
+</html>
